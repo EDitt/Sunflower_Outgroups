@@ -22,6 +22,9 @@ Sequence data was obtained as described in Hubner et al. (2019)
 
 ## Methods
 
+Reads were downloaded using `fasterq-dump` from the SRA toolkit (2.9.6)
+> See `SRA_download.sh`
+
 Samples were quality assessed and trimmed using sequence handling https://github.com/EDitt/sequence_handling
 
 Samples were then mapped to the HA412Ho v.2.0 genome
