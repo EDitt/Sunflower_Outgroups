@@ -26,12 +26,12 @@ Samples were quality assessed and trimmed using sequence handling https://github
 
 Samples were then mapped to the HA412Ho v.2.0 genome
 - First, a genome index file was created using the following command:
-> `module load Stampy/1.0.31-foss-2016b-Python-2.7.14`
-> `cd scratch/eld72413/NSFproj/ancestralseqs/GenomeFiles/`
-> `stampy.py -G Ha412HOv2 /scratch/eld72413/Ha412HOv2.0/Ha412HOv2.0-20181130.fasta`
-> (The `-G` flag specifies the PREFIX for the genome index)
-This created a genome file "Ha412HOv2.stidx"
-- Then a genome hash file was created in the same directory:
-> `stampy.py -g Ha412HOv2 -H Ha412HOv2` 
+> `module load Stampy/1.0.31-foss-2016b-Python-2.7.14`  
+`cd scratch/eld72413/NSFproj/ancestralseqs/GenomeFiles/`  
+`stampy.py -G Ha412HOv2 /scratch/eld72413/Ha412HOv2.0/Ha412HOv2.0-20181130.fasta`  
+(The `-G` flag specifies the PREFIX for the genome index)  
+This created a genome file "Ha412HOv2.stidx"  
+- Then a genome hash file was created in the same directory:  
+> `stampy.py -g Ha412HOv2 -H Ha412HOv2`   
 >Inputs needed are `-g` to specify the genome index prefix (use the genome index file PREFIX.stidx),
 and `-H` to build a hash file with the prefix listed (build hash PREFIX.sthash)
