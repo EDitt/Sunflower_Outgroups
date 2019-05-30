@@ -14,9 +14,9 @@
 set -o pipefail
 
 
-module load
+module load Stampy/1.0.31-foss-2016b-Python-2.7.14
 
-#   User provided arguments
+###### User provided arguments
 
 #	Directory containing Trimmed sequences to map
 SEQ_DIR='/scratch/eld72413/NSFproj/ancestralseqs/Debilis/Adapter_Trimming'
@@ -32,34 +32,36 @@ REVERSENAME="_Reverse_ScytheTrimmed.fastq.gz"
 #   What is our per site substitution rate?
 DIVERGENCE='0.04'
 
-###
-#Still need to fix the following
 #   Reference prefix must match .stidx files
-REF_PREFIX='barley_pseudomolecules_parts'
+REF_PREFIX='Ha412HOv2'
+
 #   What directory contains our reference files?
-REF_DIR='/'
+REF_DIR='scratch/eld72413/NSFproj/ancestralseqs/GenomeFiles/'
 
+#### End of User provided arguments
 
-
-#####
-
+#	Finds forward read
 f1=$(find ${SEQ_DIR} -maxdepth 1 -name "*${FORWARDNAME}" | sed -n ${PBS_ARRAYID}p)
 
+#	Finds Reverse read
 f2=${f1%%$FORWARDNAME}"$REVERSENAME"
 
 #   Takes our forward read and generates sample name for output file
 SAMPLE_NAME=$(basename ${f1%%$FORWARDNAME}"")
 
-#   Stampy test run
+#   Stampy
 #       -g is the genome index file, PREFIX.stidx
 #       -h is the genome hash file, PREFIX.sthash
+#		-t is the number of threaads to use
 #       --substitutionrate is the expected fraction of Poisson-distributed substitutions (default is 0.001)
-#       -f is the output file format
-#       -M reads to map
+#       -f is the output file format (SAM is default)
+#       -M reads to map (needs to be on the last line or else forward/reverse reads need to be separated by a comma)
 #       -o is our output file
+
 cd ${REF_DIR}
-stampy -g "${REF_PREFIX}" \
+stampy.py -g "${REF_PREFIX}" \
        -h "${REF_PREFIX}" \
+       -t 8 \
        --substitutionrate="${DIVERGENCE}" \
        -f sam \
        -o "${OUT_DIR}/${SAMPLE_NAME}_0.04.sam" \
