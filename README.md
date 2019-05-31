@@ -27,7 +27,7 @@ Reads were downloaded using `fasterq-dump` from the SRA toolkit (2.9.6)
 
 Samples were quality assessed and trimmed using sequence handling https://github.com/EDitt/sequence_handling
 
-Samples were then mapped to the HA412Ho v.2.0 genome
+Samples were then mapped to the HA412Hov.2.0 genome
 - First, a genome index file was created using the following commands:
 > `module load Stampy/1.0.31-foss-2016b-Python-2.7.14`  
 `cd scratch/eld72413/NSFproj/ancestralseqs/GenomeFiles/`  

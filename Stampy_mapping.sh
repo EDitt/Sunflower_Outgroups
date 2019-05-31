@@ -36,7 +36,7 @@ DIVERGENCE='0.04'
 REF_PREFIX='Ha412HOv2'
 
 #   What directory contains our reference files?
-REF_DIR='scratch/eld72413/NSFproj/ancestralseqs/GenomeFiles/'
+REF_DIR='/scratch/eld72413/NSFproj/ancestralseqs/GenomeFiles'
 
 #### End of User provided arguments
 
