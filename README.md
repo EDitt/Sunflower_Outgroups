@@ -39,3 +39,8 @@ This created a genome file "Ha412HOv2.stidx"
 >Inputs needed are `-g` to specify the genome index prefix (use the genome index file PREFIX.stidx),
 and `-H` to build a hash file with the prefix listed (build hash PREFIX.sthash)
 - Finally samples were mapped using the `Stampy_mapping.sh` script. A 0.04 substitution rate was used to start with
+
+I then used SAM_Processing with sequence handling to get BAM file statistics. Here are the differences (averaged across the 7 samples):
+	- 3% divergence:
+	- 4% divergence: 97.74% mapped, 25.16% properly paired, and 1.27% singletons
+	- 5% divergence: 
